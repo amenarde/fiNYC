@@ -51,7 +51,7 @@ class ImagePanel extends JPanel
 						coordWriter.newLine();
 						coordWriter.write(Integer.toString(y));
 						coordWriter.close();
-						System.out.println(x + ", " + y);
+						System.out.println("(" + x + ", " + y + ")");
 					} else {
 						// do nothing
 					}

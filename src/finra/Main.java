@@ -10,15 +10,14 @@ public class Main {
 		GUI.makeWindow(); 
 		
 		while(!finishedChoosingCoords){
-			System.out.println(".");
+			System.out.print(".");
 		}
 		
 		int[] xyCoords = GUI.getCoords();
+		System.out.println("\ngot coordinates");
 		ArrayList<ArrayList<Integer>> startPoints = EndpointFinder.startpoints(xyCoords[1], xyCoords[0]);
-		
-		System.out.println(startPoints.get(0).toString());
-		System.out.println(startPoints.get(1).toString());
-		
+		System.out.println("calculated trip endpoints");
 		photoOutput.createPicture(startPoints);
+		System.out.println("saved map to file"); 
 	}
 }

@@ -13,7 +13,9 @@ public class photoOutput {
 		BufferedImage b = ImageIO.read(new File("images/NYC_portrait.jpg"));
 		for (int i = 0; i < pixels.get(0).size(); i++){
 			try {
-				b.setRGB(pixels.get(0).get(i), pixels.get(1).get(i), Color.red.getRGB());
+				int x = pixels.get(0).get(i);
+				int y = pixels.get(1).get(i);
+				b.setRGB(x - 15, y - 5, Color.red.getRGB());
 			} catch (Exception e) {
 				// ignore the edge case
 			}
