@@ -20,6 +20,7 @@ class ImagePanel extends JPanel
 {
     BufferedImage image;
     double scale;
+    boolean pickedCoords;
   
     public ImagePanel() throws IOException
     {
@@ -27,6 +28,7 @@ class ImagePanel extends JPanel
         scale = 1.0;
         setBackground(Color.black);
         connectToMouse();
+        pickedCoords = false;
     }
     
     protected void connectToMouse() {
@@ -38,21 +40,25 @@ class ImagePanel extends JPanel
     	}
     	this.addMouseListener(new MouseInputAdapter() {
 			@Override
-			public void mouseReleased(MouseEvent e) {
+			public void mousePressed(MouseEvent e) {
 				try { 
-				BufferedWriter coordWriter = new BufferedWriter(new FileWriter(f));
-				int x = (int) (e.getX() / scale);
-				int y = (int) (e.getY() / scale);
-				coordWriter.write(Integer.toString(x));
-				coordWriter.newLine();
-				coordWriter.write(Integer.toString(y));
-				coordWriter.close();
-				System.out.println(x + ", " + y);
-				
-				Main.finishedChoosingCoords = true;
+					if (!pickedCoords) {
+						pickedCoords = true;
+						BufferedWriter coordWriter = new BufferedWriter(new FileWriter(f));
+						int x = (int) (e.getX() / scale);
+						int y = (int) (e.getY() / scale);
+						coordWriter.write(Integer.toString(x));
+						coordWriter.newLine();
+						coordWriter.write(Integer.toString(y));
+						coordWriter.close();
+						System.out.println(x + ", " + y);
+					} else {
+						// do nothing
+					}
 				} catch (IOException io) {
 					System.out.println("error connecting MouseListener in Zoom.java");
 				}
+				Main.finishedChoosingCoords = true;
 			}
 		});
     }
