@@ -41,13 +41,15 @@ class ImagePanel extends JPanel
 			public void mouseReleased(MouseEvent e) {
 				try { 
 				BufferedWriter coordWriter = new BufferedWriter(new FileWriter(f));
-				int x = e.getX();
-				int y = e.getY();
+				int x = (int) (e.getX() / scale);
+				int y = (int) (e.getY() / scale);
 				coordWriter.write(Integer.toString(x));
 				coordWriter.newLine();
 				coordWriter.write(Integer.toString(y));
 				coordWriter.close();
 				System.out.println(x + ", " + y);
+				
+				Main.finishedChoosingCoords = true;
 				} catch (IOException io) {
 					System.out.println("error connecting MouseListener in Zoom.java");
 				}

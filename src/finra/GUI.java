@@ -23,7 +23,8 @@ public class GUI {
 			ImagePanel panel = new ImagePanel();
 	        ImageZoom zoom = new ImageZoom(panel);
 	        JFrame f = new JFrame();
-	        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	        //f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	        f.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 	        f.getContentPane().add(zoom.getUIPanel(), "North");
 	        f.getContentPane().add(new JScrollPane(panel));
 	        f.setSize(2400,1561);
