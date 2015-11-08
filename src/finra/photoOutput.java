@@ -18,6 +18,6 @@ public class photoOutput {
 				// ignore the edge case
 			}
 		}
-		ImageIO.write(b, "jpg", new File("images/output"));
+		ImageIO.write(b, "jpg", new File("images/output.jpg"));
 	}
 }
