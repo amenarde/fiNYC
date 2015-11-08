@@ -26,9 +26,11 @@ public class photoOutput {
 			Scanner sc = new Scanner(c);
 			x = Integer.parseInt(sc.nextLine());
 			y = Integer.parseInt(sc.nextLine());
+			sc.close();
 		} catch (Exception e) {
 			System.out.println("error gathering points from coords.txt");
 		}
+		
 		
 		for (int i = 0; i < taxi.getWidth(); i++) {
 			for (int j = 0; j < taxi.getHeight(); j++) {
@@ -40,5 +42,7 @@ public class photoOutput {
 			}
 		}
 		ImageIO.write(b, "jpg", new File("images/output.jpg"));
+		
+		
 	}
 }

@@ -1,5 +1,7 @@
 package finra;
 
+import java.awt.Desktop;
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -19,5 +21,7 @@ public class Main {
 		System.out.println("calculated trip endpoints");
 		photoOutput.createPicture(startPoints);
 		System.out.println("saved map to file"); 
+		
+		Desktop.getDesktop().open(new File("images/output.jpg"));
 	}
 }
