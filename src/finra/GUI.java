@@ -10,9 +10,9 @@ import javax.swing.*;
 public class GUI {
  
 	public static void main(String[] args) throws IOException {
-		makeWindow(); 
+		//makeWindow(); 
 		// y, then x
-		ArrayList<ArrayList<Integer>> startPoints = EndpointFinder.startpoints(2000, 2500);
+		ArrayList<ArrayList<Integer>> startPoints = EndpointFinder.startpoints(100, 100);
 		System.out.println(startPoints.get(0).toString());
 		System.out.println(startPoints.get(1).toString());
 		photoOutput.createPicture(startPoints);

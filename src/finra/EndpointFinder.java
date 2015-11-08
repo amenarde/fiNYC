@@ -171,11 +171,12 @@ public class EndpointFinder {
 	{
 		int mid = (minLatPointer + maxLatPointer)/2;
 		
-		if(dataArray[mid][1] >= minSquareLat){
-			if(dataArray[mid - 1][1] < minSquareLat){
+		if(dataArray[mid][1] >= minSquareLat) {
+			if (mid == 0) {
+				return 0;
+			} else if (dataArray[mid - 1][1] < minSquareLat){
 				return mid;
-			}
-			else{
+			} else{
 				return binSearch(minLatPointer, mid - 1, minSquareLat);
 			}		
 		}
